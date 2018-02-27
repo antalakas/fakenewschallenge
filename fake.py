@@ -2,6 +2,7 @@ from util import *
 import random
 import tensorflow as tf
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import json
 import uuid
 
@@ -73,7 +74,7 @@ def get_prediction(headline, body_text):
 
 # Web server
 app = Flask(__name__)
-
+CORS(app)
 
 # curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:5000/test_article
 @app.route("/test_article")

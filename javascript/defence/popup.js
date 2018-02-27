@@ -97,6 +97,22 @@ function saveBackgroundColor(url, color) {
   chrome.storage.sync.set(items);
 }
 
+function send_stance(headline, body_text, stance) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:5000/stance_article", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        // JSON.parse does not evaluate the attacker's scripts.
+        var result = JSON.parse(xhr.responseText);
+        console.log(result);
+
+        alert(result.result);
+      }
+    }
+    xhr.send(JSON.stringify({headline: headline, body_text: body_text, stance: stance}));
+}
+
 // This extension loads the saved background color for the current tab if one
 // exists. The user can select a new background color from the dropdown for the
 // current page, and it will be saved as part of the extension's isolated
@@ -107,6 +123,14 @@ function saveBackgroundColor(url, color) {
 // user devices.
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url, title) => {
+
+    var detect_stance = document.getElementById('detect_stance');
+
+    var agree = document.getElementById('agree');
+    var disagree = document.getElementById('disagree');
+    var discuss = document.getElementById('discuss');
+    var unrelated = document.getElementById('unrelated');
+
 //    var dropdown = document.getElementById('dropdown');
 //    var theTitle = document.getElementById('theTitle');  
       
@@ -125,7 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
     article_author = document.getElementById('article_author');
     article_publisher = document.getElementById('article_publisher');
     article_copyright = document.getElementById('article_copyright');
-      
+
+    stance_display = document.getElementById('stance_display');
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:5005/getArticleInfo", true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -148,7 +174,39 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     xhr.send(JSON.stringify({url: url}));
-      
+
+   detect_stance.addEventListener('click', () => {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:5000/classify_article", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        // JSON.parse does not evaluate the attacker's scripts.
+        var result = JSON.parse(xhr.responseText);
+        console.log(result);
+
+        stance_display.textContent = result.stance;
+      }
+    }
+    xhr.send(JSON.stringify({headline: article_title.value, body_text:article_text.value}));
+   });
+
+   agree.addEventListener('click', () => {
+       send_stance(article_title.value, article_text.value, 'agree');
+   });
+
+   disagree.addEventListener('click', () => {
+       send_stance(article_title.value, article_text.value, 'disagree');
+   });
+
+   discuss.addEventListener('click', () => {
+       send_stance(article_title.value, article_text.value, 'discuss');
+   });
+
+   unrelated.addEventListener('click', () => {
+       send_stance(article_title.value, article_text.value, 'unrelated');
+   });
+
 //    var xhr = new XMLHttpRequest();
 //    xhr.open("GET", "https://water-line.eu/getPriceList", true);
 //    xhr.onreadystatechange = function() {

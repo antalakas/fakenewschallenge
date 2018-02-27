@@ -14,6 +14,7 @@ extract information (headline /text) to feed the algorithm.
 7. pip install numpy
 8. pip install scikit-learn
 9. pip install scipy
+9.5. pip install -U flask-cors
 10. pip install tensorflow==0.12.1
 11. ./fake.sh : starts the web server
 12. things to try:

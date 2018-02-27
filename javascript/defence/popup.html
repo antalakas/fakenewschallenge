@@ -91,12 +91,33 @@
                 <label for="article_copyright">Copyright</label><br />
                 <input type="text" id="article_copyright" name="article_copyright" size="50" value="" />
             </p>
-            
-            <p>
-                <input id="save" type="submit" value="Detect stance" />
-                <span id="status-display"></span>
-            </p>
-        </form>          
+
+        </form>
+
+        <p>
+            <input id="detect_stance" type="submit" value="Detect stance" />
+            <span id="stance_display"></span>
+        </p>
+
+        <hr>
+
+        <h2>Set stance</h2>
+
+        <p>
+            <input id="agree" type="submit" value="Agree" />
+        </p>
+
+        <p>
+            <input id="disagree" type="submit" value="Disagree" />
+        </p>
+
+        <p>
+            <input id="discuss" type="submit" value="Discuss" />
+        </p>
+
+        <p>
+            <input id="unrelated" type="submit" value="Unrelated" />
+        </p>
       </div>
 <!--
     <div id="container">
@@ -113,6 +134,13 @@
       <textarea id='theTitle' readonly>5689</textarea>  
     </div>
 -->
+
+    <div>
+        Source code available here <a href="https://github.com/antalakas/fakenewschallenge" title="stance detector">stance detector</a>
+    </div>
+
+    <p>
+
     <div>
         Uses <a href="https://github.com/ageitgey/node-unfluff" title="unfluff">unfluff</a> to "Automatically extract body content (and other cool stuff) from <br> an html document", based on Goose - Article Extractor.
     </div>
@@ -120,12 +148,12 @@
     <p>
           
     <div>
-        Uses <a href="https://github.com/hanselowski/athene_system" title="athene_system">athene_system</a> for Machine Learning based article stance detection as <br> described in <a href="http://www.fakenewschallenge.org/" title="FNC">FNC</a>
+        Uses <a href="https://github.com/uclmr/fakenewschallenge" title="UCL Machine Reading - FNC-1 Submission">UCL Machine Reading - FNC-1 Submission</a> for Machine Learning based <br> article stance detection as described in <a href="http://www.fakenewschallenge.org/" title="FNC">FNC</a>
     </div> 
     
     <p>
       
     <div>
-        Icons made by <a href="http://www.freepik.com"     title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>     
+        Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
   </body>
 </html>
