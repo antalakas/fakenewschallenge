@@ -2,7 +2,7 @@
 
 A work to add a user interface to UCL Machine Reading - FNC-1 Submission
 by means of a Chrome Extension. An article based scrapper is used to 
-extract information (headline /text) to feed the algorithm.
+extract information (headline /text) and feed the algorithm.
 
 ## Quick start
 
