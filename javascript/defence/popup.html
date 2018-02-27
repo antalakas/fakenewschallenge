@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;  
+        min-width: 420px;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+        
+      input, textarea {
+        width: 420px;
+      }
+        
+      input#save {
+        font-weight: bold; width: auto;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <h1>DEFENCE - DEtector of FakE news staNCE</h1>
+      <div>
+        <form id="addbookmark">
+            <p>
+                <label for="article_url">Url</label><br />
+                <input type="text" id="article_url" name="article_url" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_title">Title</label><br />
+                <input type="text" id="article_title" name="article_title" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_text">Text</label><br />
+                <textarea id="article_text" name="article_text" rows="6" cols="35">
+                </textarea>
+            </p>
+            <p>
+                <label for="article_description">Description</label><br />
+                <input type="text" id="article_description" name="article_description" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_keywords">Keywords</label><br />
+                <input type="text" id="article_keywords" name="article_keywords" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_image">Image</label><br />
+                <input type="text" id="article_image" name="article_image" size="50" value="" />
+            </p>
+            
+            <p>
+                <label for="article_date">Date</label><br />
+                <input type="text" id="article_date" name="article_date" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_author">Author</label><br />
+                <input type="text" id="article_author" name="article_author" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_publisher">Publisher</label><br />
+                <input type="text" id="article_publisher" name="article_publisher" size="50" value="" />
+            </p>
+            <p>
+                <label for="article_copyright">Copyright</label><br />
+                <input type="text" id="article_copyright" name="article_copyright" size="50" value="" />
+            </p>
+            
+            <p>
+                <input id="save" type="submit" value="Detect stance" />
+                <span id="status-display"></span>
+            </p>
+        </form>          
+      </div>
+<!--
+    <div id="container">
+      <span>Choose a color</span>
+      <select id="dropdown">
+        <option selected disabled hidden value=''></option>
+        <option value="white">White</option>
+        <option value="pink">Pink</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+      </select>
+    </div>
+    <div>
+      <textarea id='theTitle' readonly>5689</textarea>  
+    </div>
+-->
+    <div>
+        Uses <a href="https://github.com/ageitgey/node-unfluff" title="unfluff">unfluff</a> to "Automatically extract body content (and other cool stuff) from <br> an html document", based on Goose - Article Extractor.
+    </div>
+      
+    <p>
+          
+    <div>
+        Uses <a href="https://github.com/hanselowski/athene_system" title="athene_system">athene_system</a> for Machine Learning based article stance detection as <br> described in <a href="http://www.fakenewschallenge.org/" title="FNC">FNC</a>
+    </div> 
+    
+    <p>
+      
+    <div>
+        Icons made by <a href="http://www.freepik.com"     title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>     
+  </body>
+</html>

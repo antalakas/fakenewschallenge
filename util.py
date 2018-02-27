@@ -213,6 +213,25 @@ def pipeline_train(train, test, lim_unigram):
     return train_set, train_stances, bow_vectorizer, tfreq_vectorizer, tfidf_vectorizer
 
 
+def pipeline_single(headline, body_text, bow_vectorizer, tfreq_vectorizer, tfidf_vectorizer):
+    test_set = []
+
+    head_bow = bow_vectorizer.transform([headline]).toarray()
+    head_tf = tfreq_vectorizer.transform(head_bow).toarray()[0].reshape(1, -1)
+    head_tfidf = tfidf_vectorizer.transform([headline]).toarray().reshape(1, -1)
+
+    body_bow = bow_vectorizer.transform([body_text]).toarray()
+    body_tf = tfreq_vectorizer.transform(body_bow).toarray()[0].reshape(1, -1)
+    body_tfidf = tfidf_vectorizer.transform([body_text]).toarray().reshape(1, -1)
+
+    tfidf_cos = cosine_similarity(head_tfidf, body_tfidf)[0].reshape(1, 1)
+
+    feat_vec = np.squeeze(np.c_[head_tf, body_tf, tfidf_cos])
+    test_set.append(feat_vec)
+
+    return test_set
+
+
 def pipeline_test(test, bow_vectorizer, tfreq_vectorizer, tfidf_vectorizer):
 
     """
@@ -301,3 +320,6 @@ def save_predictions(pred, file):
         writer.writeheader()
         for instance in pred:
             writer.writerow({'Stance': label_ref_rev[instance]})
+
+def get_predictions(pred):
+    return label_ref_rev[pred[0]]
