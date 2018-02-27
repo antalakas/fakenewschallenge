@@ -20,8 +20,10 @@ extract information (headline /text) to feed the algorithm.
 
     * Tests the installation:
     
-    ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" 
-    -X GET http://localhost:5000/test_article```
+    ```
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" 
+    -X GET http://localhost:5000/test_article
+    ```
     
     * result
     
@@ -34,7 +36,9 @@ extract information (headline /text) to feed the algorithm.
     ```
     
     * Classifies article
-    ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d 
+    
+    ```
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d 
     '{"headline": "Ferguson riots: Pregnant woman loses eye after cops fire BEAN BAG round 
     through car window", "body_text": "A Facebook post By Tikal goldie showed a image of 
     her sister Lenora hospitalized from rubber bullets fired in Ferguson, Mo on Monday. 
@@ -43,7 +47,8 @@ extract information (headline /text) to feed the algorithm.
     now loose her left eye do to this situation. Apparently her boy friend was arrested 
     and charged with a felony for trying to run a police officer over.  Above the original 
     photo posted via Facebook. We will continue to keep you updated as this story develops."}' 
-    http://localhost:5000/classify_article```
+    http://localhost:5000/classify_article
+    ```
     
     * result
     
@@ -56,7 +61,9 @@ extract information (headline /text) to feed the algorithm.
     ```
     
     * Suggests a new classification, the result is stored as a json file under ./stances folder:
-    ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d 
+    
+    ```
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d 
     '{"headline": "Ferguson riots: Pregnant woman loses eye after cops fire BEAN BAG round 
     through car window", "body_text": "A Facebook post By Tikal goldie showed a image of 
     her sister Lenora hospitalized from rubber bullets fired in Ferguson, Mo on Monday. 
@@ -65,9 +72,11 @@ extract information (headline /text) to feed the algorithm.
     now loose her left eye do to this situation. Apparently her boy friend was arrested 
     and charged with a felony for trying to run a police officer over.  Above the original 
     photo posted via Facebook. We will continue to keep you updated as this story develops.", 
-    "stance": "agree"}' http://localhost:5000/stance_article```
+    "stance": "agree"}' http://localhost:5000/stance_article
+    ```
  
      * result
+     
     ```
     {
       "result": "OK"
@@ -82,34 +91,46 @@ extract information (headline /text) to feed the algorithm.
  18. ./extractor.sh: runs on port http://localhost:5005
  19. things to try:
     * scraps an article
-    ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d 
+    
+    ```
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d 
     '{"url":"https://www.reuters.com/article/us-usa-immigration-ruling/second-u-s-judge-blocks-trump-administration-from-ending-daca-program-idUSKCN1FX2TJ"}' 
-    http://localhost:5005/getArticleInfo```
+    http://localhost:5005/getArticleInfo
+    ```
     
     * result:
-    ```{
-   "title": "Second U.S. judge blocks Trump administration from ending DACA program",
-   "softTitle": "Second U.S. judge blocks Trump administration from ending DACA program",
-   "date": "February 13, 2018 / 8:57 PM / 14 days ago",
-   "author": [
-      "Dan Levine"
-   ],
-   "publisher": "U.S.",
-   "copyright": "2018 Reuters",
-   "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
-   "description": "A second U.S. judge on Tuesday blocked President Donald Trump's decision to end a program that protects immigrants brought to the United States illegally as children from deportation.",
-   "keywords": "US,USA,IMMIGRATION,RULING,Crime / Law / Justice,Lawmaking,Society / Social Issues,Asylum / Immigration / Refugees,Judicial Process / Court Cases / Court Decisions,Government / Politics,New York City,Fundamental Rights / Civil Liberties,Major News,Human Rights / Civil Rights,US Government News,New York,United States",
-   "lang": "en",
-   "canonicalLink": "https://www.reuters.com/article/us-usa-immigration-ruling/second-u-s-judge-blocks-trump-administration-from-ending-daca-program-idUSKCN1FX2TJ",
-   "tags": [],
-   "image": "https://s3.reutersmedia.net/resources/r/?m=02&d=20180214&t=2&i=1231217675&w=1200&r=LYNXNPEE1C1VQ",
-   "videos": [],
-   "links": [],
-   "text": "(Reuters) - A second U. S. judge on Tuesday blocked President Donald Trump’s decision to end a program that protects immigrants brought to the United States illegally as children from deportation.\n\nU. S. District Judge Nicholas Garaufis in Brooklyn ruled that the Deferred Action for Childhood Arrivals program, or DACA, cannot end in March as the Republican administration had planned, a victory for Democratic state attorneys general and immigrants who sued the federal government.\n\nThe decision is similar to a Jan. 9 ruling by U. S. District Judge William Alsup in San Francisco that DACA must remain in place while litigation challenging Trump’s decision continues.\n\nThe legal battle over DACA complicates a debate currently underway in Congress on whether to change the nation’s immigration laws.\n\nThe Supreme Court on Friday is due to consider whether to take up the administration’s appeal of the San Francisco ruling. The court could announce as soon as Friday afternoon whether it will hearing the case.\n\nGaraufis said the administration could eventually rescind the DACA program but that the reasons it gave last September for rescinding it were too arbitrary and could not stand. The judge ordered the administration to process DACA renewal applications on the same terms as had been in place before the president took his action.\n\nIn a statement, U. S. Justice Department spokesman Devin O‘Malley said DACA was implemented unilaterally by Trump’s Democratic predecessor Barack Obama and thus unlawfully circumvented Congress.\n\n“The Justice Department will continue to vigorously defend this position, and looks forward to vindicating its position in further litigation,” O‘Malley said.\n\nOften called “Dreamers,” hundreds of thousands of young adults, mostly Hispanics, have been granted protection from deportation and given work permits under DACA, which was created in 2012."
-}%```
+    
+    ```
+    {
+       "title": "Second U.S. judge blocks Trump administration from ending DACA program",
+       "softTitle": "Second U.S. judge blocks Trump administration from ending DACA program",
+       "date": "February 13, 2018 / 8:57 PM / 14 days ago",
+       "author": [
+          "Dan Levine"
+       ],
+       "publisher": "U.S.",
+       "copyright": "2018 Reuters",
+       "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+       "description": "A second U.S. judge on Tuesday blocked President Donald Trump's decision to end a program that protects immigrants brought to the United States illegally as children from deportation.",
+       "keywords": "US,USA,IMMIGRATION,RULING,Crime / Law / Justice,Lawmaking,Society / Social Issues,Asylum / Immigration / Refugees,Judicial Process / Court Cases / Court Decisions,Government / Politics,New York City,Fundamental Rights / Civil Liberties,Major News,Human Rights / Civil Rights,US Government News,New York,United States",
+       "lang": "en",
+       "canonicalLink": "https://www.reuters.com/article/us-usa-immigration-ruling/second-u-s-judge-blocks-trump-administration-from-ending-daca-program-idUSKCN1FX2TJ",
+       "tags": [],
+       "image": "https://s3.reutersmedia.net/resources/r/?m=02&d=20180214&t=2&i=1231217675&w=1200&r=LYNXNPEE1C1VQ",
+       "videos": [],
+       "links": [],
+       "text": "(Reuters) - A second U. S. judge on Tuesday blocked President Donald Trump’s decision to end a program that protects immigrants brought to the United States illegally as children from deportation.\n\nU. S. District Judge Nicholas Garaufis in Brooklyn ruled that the Deferred Action for Childhood Arrivals program, or DACA, cannot end in March as the Republican administration had planned, a victory for Democratic state attorneys general and immigrants who sued the federal government.\n\nThe decision is similar to a Jan. 9 ruling by U. S. District Judge William Alsup in San Francisco that DACA must remain in place while litigation challenging Trump’s decision continues.\n\nThe legal battle over DACA complicates a debate currently underway in Congress on whether to change the nation’s immigration laws.\n\nThe Supreme Court on Friday is due to consider whether to take up the administration’s appeal of the San Francisco ruling. The court could announce as soon as Friday afternoon whether it will hearing the case.\n\nGaraufis said the administration could eventually rescind the DACA program but that the reasons it gave last September for rescinding it were too arbitrary and could not stand. The judge ordered the administration to process DACA renewal applications on the same terms as had been in place before the president took his action.\n\nIn a statement, U. S. Justice Department spokesman Devin O‘Malley said DACA was implemented unilaterally by Trump’s Democratic predecessor Barack Obama and thus unlawfully circumvented Congress.\n\n“The Justice Department will continue to vigorously defend this position, and looks forward to vindicating its position in further litigation,” O‘Malley said.\n\nOften called “Dreamers,” hundreds of thousands of young adults, mostly Hispanics, have been granted protection from deportation and given work permits under DACA, which was created in 2012."
+    }%
+    ```
+
+
 
 
 ### Follows the original README.md:
+
+
+
+
 
 <p align="center">
 <img src="https://github.com/uclmr/fakenewschallenge/blob/master/images/uclmr_logo.png" alt="UCL Machine Reading" width="25%"/>
