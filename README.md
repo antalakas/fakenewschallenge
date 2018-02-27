@@ -4,7 +4,13 @@ A work to add a user interface to UCL Machine Reading - FNC-1 Submission
 by means of a Chrome Extension. An article based scrapper is used to 
 extract information (headline /text) to feed the algorithm.
 
-## Getting started:
+## Quick start
+
+<a href="https://github.com/antalakas/fakenewschallenge/tree/master/javascript/defence.crx" target="_blank">Download extension</a>
+Then drag n drop into extensions page in Chrome
+
+
+## Getting started (installing server side modules for development):
 1. Install Python3, npm, node.js
 2. Clone the repo
 3. cd fakenewschallenge
@@ -123,7 +129,8 @@ extract information (headline /text) to feed the algorithm.
        "text": "(Reuters) - A second U. S. judge on Tuesday blocked President Donald Trump’s decision to end a program that protects immigrants brought to the United States illegally as children from deportation.\n\nU. S. District Judge Nicholas Garaufis in Brooklyn ruled that the Deferred Action for Childhood Arrivals program, or DACA, cannot end in March as the Republican administration had planned, a victory for Democratic state attorneys general and immigrants who sued the federal government.\n\nThe decision is similar to a Jan. 9 ruling by U. S. District Judge William Alsup in San Francisco that DACA must remain in place while litigation challenging Trump’s decision continues.\n\nThe legal battle over DACA complicates a debate currently underway in Congress on whether to change the nation’s immigration laws.\n\nThe Supreme Court on Friday is due to consider whether to take up the administration’s appeal of the San Francisco ruling. The court could announce as soon as Friday afternoon whether it will hearing the case.\n\nGaraufis said the administration could eventually rescind the DACA program but that the reasons it gave last September for rescinding it were too arbitrary and could not stand. The judge ordered the administration to process DACA renewal applications on the same terms as had been in place before the president took his action.\n\nIn a statement, U. S. Justice Department spokesman Devin O‘Malley said DACA was implemented unilaterally by Trump’s Democratic predecessor Barack Obama and thus unlawfully circumvented Congress.\n\n“The Justice Department will continue to vigorously defend this position, and looks forward to vindicating its position in further litigation,” O‘Malley said.\n\nOften called “Dreamers,” hundreds of thousands of young adults, mostly Hispanics, have been granted protection from deportation and given work permits under DACA, which was created in 2012."
     }%
     ```
-
+    
+20. under fakenewschallenge/javascript/defence, check popup.js and replace the hostname in XMLHttpRequest with localhost
 
 
 
