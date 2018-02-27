@@ -99,7 +99,7 @@ function saveBackgroundColor(url, color) {
 
 function send_stance(headline, body_text, stance) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/stance_article", true);
+    xhr.open("POST", "http://45.77.117.206:5000/stance_article", true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stance_display = document.getElementById('stance_display');
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5005/getArticleInfo", true);
+    xhr.open("POST", "http://45.77.117.206:5005/getArticleInfo", true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    detect_stance.addEventListener('click', () => {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/classify_article", true);
+    xhr.open("POST", "http://45.77.117.206:5000/classify_article", true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {

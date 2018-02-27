@@ -28,7 +28,7 @@ app.post('/getArticleInfo', cors(), function(req, res){
   });
 });
 
-app.listen(5005, function(){
+app.listen(5005, "0.0.0.0", function(){
   console.log("Started on PORT 5005");
 })
 

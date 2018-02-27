@@ -76,6 +76,8 @@ def get_prediction(headline, body_text):
 app = Flask(__name__)
 CORS(app)
 
+app.run(host='0.0.0.0')
+
 # curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:5000/test_article
 @app.route("/test_article")
 def test_artice():
